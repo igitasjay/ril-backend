@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import { routesrouter } from "./routes/route.routes";
+import { busrouters } from "./routes/bus.routes";
 
 dotenv.config();
 
@@ -15,6 +17,9 @@ app.get("/health", (req, res) => {
     message: "server is alive!",
   });
 });
+
+app.use("/routes", routesrouter);
+app.use("/buses", busrouters);
 
 const PORT = process.env.PORT || 4000;
 
