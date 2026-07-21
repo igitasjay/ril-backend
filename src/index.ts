@@ -4,6 +4,7 @@ import cors from "cors";
 import { routesrouter } from "./routes/route.routes";
 import { busrouters } from "./routes/bus.routes";
 import { avrouter } from "./routes/availability.routes";
+import { bookingrouter } from "./routes/booking.routes";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.get("/health", (req, res) => {
 app.use("/routes", routesrouter);
 app.use("/buses", busrouters);
 app.use("/availability", avrouter);
+app.use("/booking", bookingrouter);
 
 const PORT = process.env.PORT || 4000;
 
