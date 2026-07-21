@@ -5,6 +5,7 @@ import { routesrouter } from "./routes/route.routes";
 import { busrouters } from "./routes/bus.routes";
 import { avrouter } from "./routes/availability.routes";
 import { bookingrouter } from "./routes/booking.routes";
+import { confirmrouter } from "./routes/confirm-booking.route";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use("/routes", routesrouter);
 app.use("/buses", busrouters);
 app.use("/availability", avrouter);
 app.use("/booking", bookingrouter);
+app.use("/confirm-booking", confirmrouter);
 
 const PORT = process.env.PORT || 4000;
 

@@ -48,4 +48,20 @@ function createBooking(
   return booking;
 }
 
-export { createBooking };
+function confirmBooking(bookingId: string) {
+  const booking = bookings.find((b) => bookingId === b.id);
+
+  if (!booking) {
+    throw new Error("NotFoundException");
+  }
+
+  if (booking.status === "confirmed") {
+    throw new Error("AlreadyConfirmedException");
+  }
+
+  booking.status = "confirmed";
+
+  return booking;
+}
+
+export { createBooking, confirmBooking };
